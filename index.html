@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FruityCan - Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .hero-section {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                            url('https://images.unsplash.com/photo-1546548970-71785318a17b?auto=format&fit=crop&w=1920');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card-link {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 w-full bg-white shadow-sm z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-start h-16">
+                <a href="#" class="text-orange-500 font-bold text-xl mr-8">FruityCan</a>
+                <div class="space-x-6">
+                    <a href="#" class="text-orange-500 border-b-2 border-orange-500 pb-1">Home</a>
+                    <a href="#" class="text-gray-600 hover:text-orange-500 transition-colors">About</a>
+                    <a href="#" class="text-gray-600 hover:text-orange-500 transition-colors">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Box-Style Link Panel -->
+    <div class="container mx-auto px-4 mt-24">
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+            <a href="#" class="card-link bg-white p-6 rounded-xl shadow-md text-center">
+                <i class="bi bi-house-door text-3xl text-orange-500"></i>
+                <p class="mt-2 text-gray-700">Home</p>
+            </a>
+            <a href="#" class="card-link bg-white p-6 rounded-xl shadow-md text-center">
+                <i class="bi bi-instagram text-3xl text-pink-500"></i>
+                <p class="mt-2 text-gray-700">Instagram</p>
+            </a>
+            <a href="#" class="card-link bg-white p-6 rounded-xl shadow-md text-center">
+                <i class="bi bi-facebook text-3xl text-blue-600"></i>
+                <p class="mt-2 text-gray-700">Facebook</p>
+            </a>
+            <a href="#" class="card-link bg-white p-6 rounded-xl shadow-md text-center">
+                <i class="bi bi-youtube text-3xl text-red-600"></i>
+                <p class="mt-2 text-gray-700">YouTube</p>
+            </a>
+            <a href="#" class="card-link bg-white p-6 rounded-xl shadow-md text-center">
+                <i class="bi bi-plus-circle text-3xl text-green-500"></i>
+                <p class="mt-2 text-gray-700">More</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section min-h-[70vh] mt-12 py-20 px-4">
+        <div class="container mx-auto max-w-4xl text-center fade-in">
+            <h1 class="text-5xl md:text-6xl font-bold text-orange-500 mb-4">Welcome to FruityCan</h1>
+            <h2 class="text-2xl md:text-3xl text-gray-600 mb-6">Your ultimate refreshing beverage experience</h2>
+            <p class="text-gray-600 text-lg mb-8 max-w-2xl mx-auto">
+                FruityCan is a line of all-natural, fruit-infused drinks made for every season—bursting with flavor and packed with real fruit extracts. Follow us on social media to stay up-to-date with new flavors, seasonal specials, and more!
+            </p>
+            <button class="bg-orange-500 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-orange-600 transition-colors shadow-lg">
+                Explore Flavors
+            </button>
+        </div>
+    </section>
+
+    <script>
+        // Fade-in animation on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+<script>document.body.addEventListener('wheel', e => { if (!e.ctrlKey) return; e.preventDefault(); return }, { passive: false })</script>
+	</body>
+</html>
